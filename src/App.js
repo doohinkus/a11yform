@@ -1,12 +1,14 @@
 import { useState } from "react";
+import { useFieldValues } from "./hooks/useFieldValues";
 import "./App.css";
 
 function App() {
   // convert to custom hook
-  const [fields, setFieldValue] = useState({});
-  const fieldValueHelper = (e) =>
-    setFieldValue({ ...fields, [e.target.name]: e.target.value });
-  console.log(fields);
+  const [fields, fieldValueHelper] = useFieldValues();
+  // const [fields, setFieldValue] = useState({});
+  // const fieldValueHelper = (e) =>
+  //   setFieldValue({ ...fields, [e.target.name]: e.target.value });
+  // console.log(fields);
   // convert to custom hook
 
   return (
