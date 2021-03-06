@@ -1,16 +1,18 @@
 import { useState } from "react";
 import { useFieldValues } from "./hooks/useFieldValues";
+import { useFieldErrors } from "./hooks/useFieldErrors";
+import InputText from "./components/InputText";
 import "./App.css";
 
 function App() {
-  // convert to custom hook
   const [fields, fieldValueHelper] = useFieldValues();
-  // const [fields, setFieldValue] = useState({});
-  // const fieldValueHelper = (e) =>
-  //   setFieldValue({ ...fields, [e.target.name]: e.target.value });
-  // console.log(fields);
-  // convert to custom hook
-
+  const [
+    fieldErrors,
+    addFieldError,
+    clearFieldError,
+    getFieldError,
+  ] = useFieldErrors();
+  console.log(fieldErrors, "\n", fields);
   return (
     <div className="App">
       <div className="container">
@@ -18,20 +20,26 @@ function App() {
         <fieldset>
           <legend>Name:</legend>
           <div>
-            <label htmlFor="first">First Name:</label>
-            <input
+            <InputText
+              label="First Name:"
               name="first"
               id="first"
               type="text"
               onChange={fieldValueHelper}
-              aria-describedby="feedbackFirst"
+              isError={getFieldError("first")}
+              aria-invalid={getFieldError("first")}
+              onBlur={(e) => {
+                if (e.target.value.length > 3) {
+                  addFieldError(e.target.name);
+                } else {
+                  clearFieldError(e.target.name);
+                }
+              }}
             />
-            <span id="feedbackFirst" aria-live="assertive"></span>
           </div>
           <div>
-            <label>Last Name:</label>
-            <input
-              type="text"
+            <InputText
+              label="Last Name:"
               name="lastName"
               id="lastName"
               onChange={fieldValueHelper}
@@ -51,11 +59,10 @@ function App() {
             />
           </div>
           <div>
-            <label>Last four digits of ssn:</label>
-            <input
+            <InputText
+              label="Last four digits of ssn:"
               name="ssn"
               id="ssn"
-              type="text"
               onChange={fieldValueHelper}
             />
           </div>
