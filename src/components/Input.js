@@ -5,7 +5,6 @@ export default function Input({
   label = "",
   type = "text",
   fieldErrorMessage = "",
-  isRequired = false,
   isError = false,
   ...props
 }) {
@@ -16,7 +15,6 @@ export default function Input({
         {...props}
         type={type}
         name={name}
-        required={isRequired}
         aria-invalid={isError}
         aria-describedby={`${props.id}-live`}
       />

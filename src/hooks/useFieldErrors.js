@@ -18,5 +18,5 @@ export function useFieldErrors() {
     if (fieldErrors[name] && fieldErrors[name].error) return true;
     return false;
   };
-  return [fieldErrors, addFieldError, clearFieldError, getFieldError];
+  return [addFieldError, clearFieldError, getFieldError];
 }
