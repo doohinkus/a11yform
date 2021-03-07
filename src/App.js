@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useFieldValues } from "./hooks/useFieldValues";
 import { useFieldErrors } from "./hooks/useFieldErrors";
-import InputText from "./components/InputText";
+import Input from "./components/Input";
 import "./App.css";
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
         <fieldset>
           <legend>Name:</legend>
           <div>
-            <InputText
+            <Input
               label="First Name:"
               name="first"
               id="first"
@@ -38,8 +38,9 @@ function App() {
             />
           </div>
           <div>
-            <InputText
+            <Input
               label="Last Name:"
+              type="text"
               name="lastName"
               id="lastName"
               onChange={fieldValueHelper}
@@ -49,18 +50,18 @@ function App() {
         <fieldset>
           <legend>Personal indentifiers</legend>
           <div>
-            <label>Birthdate:</label>
-
-            <input
+            <Input
               name="date"
               id="date"
               type="date"
+              label="Birthdate:"
               onChange={fieldValueHelper}
             />
           </div>
           <div>
-            <InputText
+            <Input
               label="Last four digits of ssn:"
+              type="text"
               name="ssn"
               id="ssn"
               onChange={fieldValueHelper}
