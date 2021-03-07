@@ -1,11 +1,14 @@
 import { useFieldValues } from "./hooks/useFieldValues";
 import { useFieldErrors } from "./hooks/useFieldErrors";
+import { usePageErrors } from "./hooks/usePageErrors";
 import Input from "./components/Input";
-import "./App.css";
+import Fieldset from "./components/Fieldset";
+import "./App.scss";
 
 function App() {
   const [fields, textHelper, checkboxHelper] = useFieldValues();
   const [addFieldError, clearFieldError, getFieldError] = useFieldErrors();
+  const [pageErrors, addPageError, clearPageError] = usePageErrors();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,8 +22,8 @@ function App() {
     <div className="App">
       <div className="container">
         <div>Step 1 of 2</div>
-        <form noValidate onSubmit={handleSubmit}>
-          <fieldset>
+        <form className="form" noValidate onSubmit={handleSubmit}>
+          <Fieldset>
             <legend>Name:</legend>
             <div>
               <Input
@@ -31,9 +34,9 @@ function App() {
                 onChange={textHelper}
                 isError={getFieldError("first")}
                 required
-                fieldErrorMessage="hey man, less than 4 characters"
+                fieldErrorMessage="Please enter more than three characters"
                 onBlur={(e) => {
-                  if (e.target.value.length > 3) {
+                  if (e.target.value.length < 3) {
                     addFieldError(e.target.name);
                   } else {
                     clearFieldError(e.target.name);
@@ -50,8 +53,8 @@ function App() {
                 onChange={textHelper}
               />
             </div>
-          </fieldset>
-          <fieldset>
+          </Fieldset>
+          <Fieldset>
             <legend>Personal indentifiers</legend>
             <div>
               <Input
@@ -68,6 +71,15 @@ function App() {
                 type="text"
                 name="ssn"
                 id="ssn"
+                fieldErrorMessage="Please enter four digits."
+                isError={getFieldError("ssn")}
+                onBlur={(e) => {
+                  if (!/^\d{4}$/.test(e.target.value)) {
+                    addFieldError(e.target.name);
+                  } else {
+                    clearFieldError(e.target.name);
+                  }
+                }}
                 onChange={textHelper}
               />
             </div>
@@ -91,7 +103,7 @@ function App() {
                 onChange={checkboxHelper}
               />
             </div>
-          </fieldset>
+          </Fieldset>
           <button>Continue</button>
         </form>
       </div>

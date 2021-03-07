@@ -15,10 +15,13 @@ export default function InputText({
         type="text"
         aria-describedby={`${props.id}-live`}
       />
-      <span id={`${props.id}-live`} aria-live="assertive">
-        {props.ariaMessage || ""}
+      <span
+        id={`${props.id}-live`}
+        className="span error"
+        aria-live="assertive"
+      >
+        <ShowWhenTrue condition={isError}>{props.ariaMessage}</ShowWhenTrue>
       </span>
-      <ShowWhenTrue condition={isError}>Error!!!!</ShowWhenTrue>
     </>
   );
 }

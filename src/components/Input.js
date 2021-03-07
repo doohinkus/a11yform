@@ -18,12 +18,15 @@ export default function Input({
         aria-invalid={isError}
         aria-describedby={`${props.id}-live`}
       />
-      <span id={`${props.id}-live`} aria-live="assertive">
+      <span
+        className={`span ${isError ? "span__error" : ""}`}
+        id={`${props.id}-live`}
+        aria-live="assertive"
+      >
         <ShowWhenTrue condition={isError}>
           {props.ariaMessage || fieldErrorMessage}
         </ShowWhenTrue>
       </span>
-      {/* <ShowWhenTrue condition={isError}>{fieldErrorMessage}</ShowWhenTrue> */}
     </>
   );
 }

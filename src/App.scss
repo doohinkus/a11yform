@@ -1,0 +1,30 @@
+@import "./variables";
+.form {
+  width: $form-width;
+  margin: auto;
+}
+.fieldset {
+  border-radius: $field-radius;
+  margin: 1rem;
+  border: $border-weight $border-light $border-style;
+}
+.span {
+  display: flex;
+  align-items: center;
+}
+.span__error {
+  color: $error-color;
+  height: $svg-height;
+  align-self: center;
+}
+
+.span__error::before {
+  content: url("./logo.svg");
+  //   content: "\e002";
+}
+svg#alert,
+svg {
+  width: $svg-height;
+  height: $svg-height;
+  fill: $error-color;
+}
