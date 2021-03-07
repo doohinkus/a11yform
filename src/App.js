@@ -27,7 +27,8 @@ function App() {
               type="text"
               onChange={fieldValueHelper}
               isError={getFieldError("first")}
-              aria-invalid={getFieldError("first")}
+              isRequired={true}
+              fieldErrorMessage="hey man, less than 4 characters"
               onBlur={(e) => {
                 if (e.target.value.length > 3) {
                   addFieldError(e.target.name);
@@ -64,6 +65,16 @@ function App() {
               type="text"
               name="ssn"
               id="ssn"
+              onChange={fieldValueHelper}
+            />
+          </div>
+          <div>
+            <Input
+              label="Get Rewards"
+              type="checkbox"
+              name="optIn"
+              id="optIn"
+              value="rewards"
               onChange={fieldValueHelper}
             />
           </div>

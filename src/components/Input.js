@@ -4,6 +4,8 @@ export default function Input({
   name,
   label = "",
   type = "text",
+  fieldErrorMessage = "",
+  isRequired = false,
   isError = false,
   ...props
 }) {
@@ -14,12 +16,16 @@ export default function Input({
         {...props}
         type={type}
         name={name}
+        required={isRequired}
+        aria-invalid={isError}
         aria-describedby={`${props.id}-live`}
       />
       <span id={`${props.id}-live`} aria-live="assertive">
-        {props.ariaMessage || ""}
+        <ShowWhenTrue condition={isError}>
+          {props.ariaMessage || fieldErrorMessage}
+        </ShowWhenTrue>
       </span>
-      <ShowWhenTrue condition={isError}>Error!!!!</ShowWhenTrue>
+      {/* <ShowWhenTrue condition={isError}>{fieldErrorMessage}</ShowWhenTrue> */}
     </>
   );
 }
