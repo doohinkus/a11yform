@@ -5,7 +5,7 @@ import Input from "./components/Input";
 import "./App.css";
 
 function App() {
-  const [fields, fieldValueHelper] = useFieldValues();
+  const [fields, textHelper, checkboxHelper] = useFieldValues();
   const [
     fieldErrors,
     addFieldError,
@@ -25,7 +25,7 @@ function App() {
               name="first"
               id="first"
               type="text"
-              onChange={fieldValueHelper}
+              onChange={textHelper}
               isError={getFieldError("first")}
               isRequired={true}
               fieldErrorMessage="hey man, less than 4 characters"
@@ -44,7 +44,7 @@ function App() {
               type="text"
               name="lastName"
               id="lastName"
-              onChange={fieldValueHelper}
+              onChange={textHelper}
             />
           </div>
         </fieldset>
@@ -56,7 +56,7 @@ function App() {
               id="date"
               type="date"
               label="Birthdate:"
-              onChange={fieldValueHelper}
+              onChange={textHelper}
             />
           </div>
           <div>
@@ -65,7 +65,7 @@ function App() {
               type="text"
               name="ssn"
               id="ssn"
-              onChange={fieldValueHelper}
+              onChange={textHelper}
             />
           </div>
           <div>
@@ -75,7 +75,16 @@ function App() {
               name="optIn"
               id="optIn"
               value="rewards"
-              onChange={fieldValueHelper}
+              isError={getFieldError("optIn")}
+              fieldErrorMessage="Check the box, yo!!!"
+              onBlur={(e) => {
+                if (e.target.checked !== true) addFieldError(e.target.name);
+                else clearFieldError(e.target.name);
+              }}
+              onClick={(e) => {
+                if (e.target.checked) clearFieldError(e.target.name);
+              }}
+              onChange={checkboxHelper}
             />
           </div>
         </fieldset>
