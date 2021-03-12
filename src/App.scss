@@ -1,4 +1,10 @@
 @import "./variables";
+.container {
+  // background-color: $base-background;
+}
+.fieldset {
+  background-color: $base-background;
+}
 .font {
   font-family: $base-font;
   font-weight: $base-font-weight;
@@ -55,7 +61,7 @@ svg {
 .alert {
   background: pink;
   width: 70vw;
-  padding: $base-padding;
+  // padding: $base-padding;
   border-radius: $base-radius;
 }
 .shadow {
@@ -65,16 +71,20 @@ svg {
   transition: $base-transition;
 }
 .grow:focus {
-  padding: 0.1rem;
+  // padding: 0.1rem;
 }
 .outline:focus {
   transition: $base-transition;
   box-shadow: $base-shadow;
 }
 .button {
-  background-color: $base-color-light;
-  padding: 0.5rem 0.75rem;
+  background-color: $base-color;
+  padding: 0.5rem 1rem;
   border: none;
   border-radius: $base-radius;
-  color: $base-color;
+  color: #fff;
+}
+.input__text {
+  width: 15rem;
+  height: 1.25rem;
 }

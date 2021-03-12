@@ -52,6 +52,7 @@ export default function Content() {
                   name="first"
                   id="first"
                   type="text"
+                  className="outline grow input__text"
                   onChange={textHelper}
                   isError={getFieldError("first")}
                   required
@@ -68,6 +69,7 @@ export default function Content() {
               <div>
                 <Input
                   label="Last Name:"
+                  className="outline grow input__text"
                   type="text"
                   name="lastName"
                   id="lastName"
@@ -89,6 +91,7 @@ export default function Content() {
               <div>
                 <Input
                   label="Last four digits of ssn:"
+                  className="outline grow input__text"
                   type="text"
                   name="ssn"
                   id="ssn"

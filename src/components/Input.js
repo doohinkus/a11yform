@@ -15,7 +15,7 @@ export default function Input({
       </label>
       <input
         {...props}
-        className="outline grow"
+        // className="outline grow input__text"
         type={type}
         name={name}
         aria-invalid={isError}
