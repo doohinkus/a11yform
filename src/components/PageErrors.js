@@ -2,7 +2,11 @@ import { Fragment } from "react";
 export default function PageErrors({ errors }) {
   const pageErrors =
     errors &&
-    errors.map(({ errorMessage, id }) => <div key={id}>{errorMessage}</div>);
+    errors.map(({ errorMessage, id }) => (
+      <div key={id} className="font heavy">
+        {errorMessage}
+      </div>
+    ));
   if (errors && errors.length > 0) {
     return <Fragment>{pageErrors}</Fragment>;
   }

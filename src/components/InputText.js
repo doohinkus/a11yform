@@ -17,7 +17,7 @@ export default function InputText({
       />
       <span
         id={`${props.id}-live`}
-        className="span error"
+        className="span error heavy font"
         aria-live="assertive"
       >
         <ShowWhenTrue condition={isError}>{props.ariaMessage}</ShowWhenTrue>

@@ -10,16 +10,21 @@ export default function Input({
 }) {
   return (
     <>
-      <label htmlFor={name}>{label}</label>
+      <label htmlFor={name} className="label heavy">
+        {label}
+      </label>
       <input
         {...props}
+        className="outline grow"
         type={type}
         name={name}
         aria-invalid={isError}
         aria-describedby={`${props.id}-live`}
       />
       <span
-        className={`span ${isError ? "span__error" : ""}`}
+        className={`span font heavy hide ${
+          isError ? "span__error fade-in" : ""
+        }`}
         id={`${props.id}-live`}
         aria-live="assertive"
       >

@@ -1,8 +1,18 @@
-$error-color: red;
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;500&display=swap");
+$base-font: "Rubik", sans-serif;
+$base-font-weight: 300;
+$heavy-font-weight: 500;
+$base-padding: 1rem;
+$base-radius: 0.45rem;
+$base-color: #1d3557;
+$error-color: #e63946;
+$base-color-light: #a8dadc;
+$base-shadow: 0 0 0.55rem rgba(9, 9, 9, 0.3);
+$base-transition: opacity 0.2s ease-in-out;
 $svg-height: 2rem;
 $field-radius: 0.25rem;
 $form-width: 80%;
 
-$border-light: #999;
+$border-light: #a8dadc;
 $border-weight: 0.25rem;
 $border-style: solid;
