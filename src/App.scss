@@ -22,19 +22,32 @@
   margin: 1rem;
   border: $border-weight $border-light $border-style;
 }
-.span {
+.flex {
   display: flex;
+  flex-flow: wrap;
+}
+.flex__center {
   align-items: center;
+}
+.flex__justify__center {
+  justify-content: center;
+}
+.fill {
+  flex-grow: 1;
+  // flex-basis: auto;
 }
 .hide {
   opacity: 0;
 }
 .span__error {
   color: $error-color;
-  height: $svg-height;
-  align-self: center;
   opacity: 1;
   padding-top: 0.25rem;
+}
+.wrap {
+  word-wrap: break-word;
+  display: block;
+  width: 70%;
 }
 
 .span__error::before {
@@ -78,7 +91,7 @@ svg {
   box-shadow: $base-shadow;
 }
 .button {
-  background-color: $base-color;
+  background-color: $button-color;
   padding: 0.5rem 1rem;
   border: none;
   border-radius: $base-radius;
@@ -88,3 +101,13 @@ svg {
   width: 15rem;
   height: 1.25rem;
 }
+
+// @media screen and (max-width: $small) {
+//   .fill {
+//     flex: 0 0 100%;
+//   }
+//   .flex {
+//     flex-flow: wrap;
+//     padding: 1rem;
+//   }
+// }

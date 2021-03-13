@@ -7,8 +7,8 @@ export function usePageErrors() {
     const cleanedErrors = pageErrors.filter(({ id }) => id !== error.id);
     setPageError([...cleanedErrors, error]);
   };
-  const clearPageError = (id) => {
-    setPageError([...pageErrors.filter(({ id }) => id !== id)]);
+  const clearPageError = (ename) => {
+    setPageError([...pageErrors.filter(({ name }) => name !== ename)]);
   };
   return [pageErrors, addPageError, clearPageError];
 }

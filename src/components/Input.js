@@ -22,14 +22,16 @@ export default function Input({
         aria-describedby={`${props.id}-live`}
       />
       <span
-        className={`span font heavy hide ${
+        className={`flex flex__center font hide ${
           isError ? "span__error fade-in" : ""
         }`}
         id={`${props.id}-live`}
         aria-live="assertive"
       >
         <ShowWhenTrue condition={isError}>
-          {props.ariaMessage || fieldErrorMessage}
+          <span className="wrap heavy">
+            {props.ariaMessage || fieldErrorMessage}
+          </span>
         </ShowWhenTrue>
       </span>
     </>

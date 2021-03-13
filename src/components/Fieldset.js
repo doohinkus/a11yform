@@ -1,3 +1,3 @@
-export default function Fieldset({ children }) {
-  return <fieldset className="fieldset">{children}</fieldset>;
+export default function Fieldset({ children, ...props }) {
+  return <fieldset {...props}>{children}</fieldset>;
 }
